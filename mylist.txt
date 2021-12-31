@@ -1,0 +1,6 @@
+file 'SLOKA/18/18-78.mp3'
+file 'TEJO/18/C18-H-78.mp3'
+file 'PUROHIT/18/18.78.mp3'
+file 'cp1.mp3'
+file 'cp2.mp3'
+file 'cp3.mp3'
