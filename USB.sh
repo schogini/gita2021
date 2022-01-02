@@ -28,7 +28,7 @@ if [ $# -ne 0 ]; then
 fi
 
 t(){
- list="$list $1"
+ [ ! -d $1 ] && list="$list $1"
  qq=$(printf "%02d\n" $q) 
  #echo $1
  touch -m -t "${qq}01010101" $1
@@ -88,5 +88,6 @@ t Saraswati-Mantra-For-Concentration-In-Studies-OM-Shreem-Hreem-Saraswatyai-Nama
 t study-music.mp3
 t vipassana.mp3
 t ANCIENT-SARASWATI-MANTRA-FOR-A-SHARP-MIND-AND-FOCUS.mp3
+t om-namah-shivaya.mp3
 
 show
