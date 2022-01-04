@@ -58,31 +58,15 @@ t 18.mp3
 t 991-Morning.mp3
 t HanumanChalisa.mp3
 
-t CH-S-P
+#t CH-S-P
 t MISC
-t CH-P-T-S
+#t CH-P-T-S
 
-cd /Volumes/SAREGAMA-S
-cd CH-S-P
-q=1
-t 1.mp3
-t 2.mp3
-t 3.mp3
-t 4.mp3
-t 5.mp3
-t 6.mp3
-t 7.mp3
-t 8.mp3
-t 9.mp3
-t 10.mp3
-t 11.mp3
-t 12.mp3
-t 13.mp3
-t 14.mp3
-t 15.mp3
-t 16.mp3
-t 17.mp3
-t 18.mp3
+#cd /Volumes/SAREGAMA-S
+#cd CH-S-P
+#q=1
+#t 1.mp3
+#t 2.mp3
 
 cd /Volumes/SAREGAMA-S
 cd MISC
@@ -93,26 +77,10 @@ t vipassana.mp3
 t ANCIENT-SARASWATI-MANTRA-FOR-A-SHARP-MIND-AND-FOCUS.mp3
 t om-namah-shivaya.mp3
 
-cd /Volumes/SAREGAMA-S
-cd CH-P-T-S
-q=1
-t 1.mp3
-t 2.mp3
-t 3.mp3
-t 4.mp3
-t 5.mp3
-t 6.mp3
-t 7.mp3
-t 8.mp3
-t 9.mp3
-t 10.mp3
-t 11.mp3
-t 12.mp3
-t 13.mp3
-t 14.mp3
-t 15.mp3
-t 16.mp3
-t 17.mp3
-t 18.mp3
+#cd /Volumes/SAREGAMA-S
+#cd CH-P-T-S
+#q=1
+#t 1.mp3
+#t 2.mp3
 
 show

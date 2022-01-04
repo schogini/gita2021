@@ -1,7 +1,7 @@
 #!/bin/sh
 
 folder=CH-$(echo $0|sed 's/\.sh//'|sed 's/join-//'|tr a-z A-Z)
-[ -d $folder ] && echo $s already present && exit
+[ -d $folder ] && echo $folder already present && exit
 
 chsloka(){
  [ $1 -eq 1 ] && n="Arjuna's Vishada Yoga"
@@ -24,10 +24,14 @@ chsloka(){
  [ $1 -eq 18 ] && n="Moksha-Sanyasa Yoga"
 
  #ffmpeg -i track1.aiff -f mp3 -acodec libmp3lame -ab 192000 -ar 44100 track1.mp3
- say -o dummy.aiff "chapter $1, $n, slokam $2 of $s"
- rm ch-sloka.mp3
- ffmpeg  -i dummy.aiff  -f mp3 -acodec libmp3lame -ac 1      -ar 16k ch-sloka.mp3
+ #say -o dummy.aiff "chapter $1, $n, slokam $2 of $s"
+ say -o dummy.aiff "slokam $2 of $s"
+ rm sloka.mp3
+ ffmpeg  -i dummy.aiff  -f mp3 -acodec libmp3lame -ac 1      -ar 16k sloka.mp3
  #afplay ch-sloka.mp3
+
+ # NEW
+
 }
 
 d(){
@@ -55,6 +59,8 @@ do
   ffmpeg -i $pp -acodec libmp3lame -ac 1 -ar 16k audio-pp.mp3
   rm audio-tt.mp3
   ffmpeg -i $tt -acodec libmp3lame -ac 1 -ar 16k audio-tt.mp3
+  rm chapter-name.mp3  
+  ffmpeg -i ch-${c}.mp3 -acodec libmp3lame -ac 1 -ar 16k chapter-name.mp3
 
   # OUTPUT FOLDER/VARS
   mkdir -p FINAL/$c
@@ -62,7 +68,7 @@ do
 
   # START ASSEMBLE
   rm current.mp3
-  cat ch-sloka.mp3 audio-pp.mp3 audio-tt.mp3 $ss | mp3cat - .
+  cat chapter-name.mp3 sloka.mp3 audio-pp.mp3 audio-tt.mp3 $ss | mp3cat - .
   # OUTPUT
   cp current.mp3 $op
 
