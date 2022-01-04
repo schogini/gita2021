@@ -1,7 +1,7 @@
 #!/bin/sh
 
-s=CH-$(echo $0|sed 's/\.sh//'|sed 's/join-//'|tr a-z A-Z)
-[ -d $s ] && echo $s already present && exit
+folder=CH-$(echo $0|sed 's/\.sh//'|sed 's/join-//'|tr a-z A-Z)
+[ -d $folder ] && echo $s already present && exit
 
 chsloka(){
  [ $1 -eq 1 ] && n="Arjuna's Vishada Yoga"
@@ -96,5 +96,5 @@ d 18 78
 
 cd /Volumes/SREE256GB/UNWANTED/GITA/
 sh ch.sh
-cp -pr CHAPTER $s
+cp -pr CHAPTER $folder
 
