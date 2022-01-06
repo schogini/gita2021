@@ -1,0 +1,77 @@
+
+
+ffprobe SLOKA/1/1-1.MP3 
+Input #0, mp3, from 'SLOKA/1/1-1.MP3':
+  Duration: 00:00:24.70, start: 0.000000, bitrate: 16 kb/s
+  Stream #0:0: Audio: mp3, 16000 Hz, mono, fltp, 16 kb/s
+
+ffprobe TEJO/1/C1-H-01.mp3
+Input #0, mp3, from 'TEJO/1/C1-H-01.mp3':
+  Duration: 00:00:15.10, start: 0.025057, bitrate: 190 kb/s
+  Stream #0:0: Audio: mp3, 44100 Hz, stereo, fltp, 190 kb/s
+    Metadata:
+      encoder         : LAME3.99r
+
+ffprobe PUROHIT/1/1.1.mp3
+Input #0, mp3, from 'PUROHIT/1/1.1.mp3':
+  Metadata:
+    genre           : Blues
+  Duration: 00:00:13.43, start: 0.000000, bitrate: 128 kb/s
+  Stream #0:0: Audio: mp3, 44100 Hz, stereo, fltp, 128 kb/s
+
+ffprobe ch-1.mp3 
+Input #0, mp3, from 'ch-1.mp3':
+  Duration: 00:00:02.98, start: 0.025057, bitrate: 322 kb/s
+  Stream #0:0: Audio: mp3, 44100 Hz, mono, fltp, 320 kb/s
+    Metadata:
+      encoder         : LAME3.100
+
+ffprobe sloka.mp3
+Input #0, mp3, from 'sloka.mp3':
+  Metadata:
+    encoder         : Lavf58.76.100
+  Duration: 00:00:02.70, start: 0.069063, bitrate: 24 kb/s
+  Stream #0:0: Audio: mp3, 16000 Hz, mono, fltp, 24 kb/s
+
+ffmpeg -i file1.mpg -ar 44100 file1-enc.mpg
+
+-ar 16k #sampling freq
+-ac 1 # mono
+-f mp3 
+-acodec libmp3lame
+------------ TRIALS -----------
+ffprobe tmp-ch-1.mp3
+Input #0, mp3, from 'tmp-ch-1.mp3':
+  Duration: 00:00:02.98, start: 0.025057, bitrate: 322 kb/s
+  Stream #0:0: Audio: mp3, 44100 Hz, mono, fltp, 320 kb/s
+    Metadata:
+      encoder         : LAME3.100
+ffmpeg -i tmp-ch-1.mp3 -ar 16k -ac 1 -f mp3 -acodec libmp3lame tmp.mp3
+	Input #0, mp3, from 'tmp-ch-1.mp3':
+		Duration: 00:00:02.98, start: 0.025057, bitrate: 322 kb/s
+		Stream #0:0: Audio: mp3, 44100 Hz, mono, fltp, 320 kb/s
+		Metadata:
+		  encoder         : LAME3.100
+	Output #0, mp3, to 'tmp.mp3':
+	  Metadata:
+	    TSSE            : Lavf58.76.100
+	  Stream #0:0: Audio: mp3, 16000 Hz, mono, fltp
+	    Metadata:
+	      encoder         : Lavc58.134.100 libmp3lame
+	size=       9kB time=00:00:02.91 bitrate=  25.5kbits/s speed=65.3x  
+ffprobe tmp.mp3
+Input #0, mp3, from 'tmp.mp3':
+  Metadata:
+    encoder         : Lavf58.76.100
+  Duration: 00:00:03.02, start: 0.069063, bitrate: 24 kb/s
+  Stream #0:0: Audio: mp3, 16000 Hz, mono, fltp, 24 kb/s
+--------------------------------------------------------- AGAIN
+ffmpeg -i tmp-ch-1.mp3 -ar 16k -ac 1 -f mp3 -b:a 16k -acodec libmp3lame tmp.mp3
+ffprobe tmp.mp3
+Input #0, mp3, from 'tmp.mp3':
+  Metadata:
+    encoder         : Lavf58.76.100
+  Duration: 00:00:03.02, start: 0.069063, bitrate: 16 kb/s
+  Stream #0:0: Audio: mp3, 16000 Hz, mono, fltp, 16 kb/s
+
+YES!!

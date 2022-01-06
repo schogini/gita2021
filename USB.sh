@@ -4,6 +4,9 @@
 
 find /Volumes/SAREGAMA-S -name "\.*" -exec rm -fr {} \; 2> /dev/null
 
+echo Press...
+read a
+
 cd /Volumes/SAREGAMA-S
 
 list=""
@@ -20,6 +23,7 @@ show(){
   echo $ii $f
   let i=$i+1
  done
+ find /Volumes/SAREGAMA-S -name "\.*" -exec rm -fr {} \; 2> /dev/null
 }
 
 if [ $# -ne 0 ]; then
@@ -32,6 +36,7 @@ t(){
  qq=$(printf "%02d\n" $q) 
  #echo $1
  touch -m -t "${qq}01010101" $1
+ echo touch -m -t "${qq}01010101" $1
  let q=$q+1
  #sleep 1
 }
@@ -55,6 +60,10 @@ t 15.mp3
 t 16.mp3
 t 17.mp3
 t 18.mp3
+
+show
+exit
+
 t 991-Morning.mp3
 t HanumanChalisa.mp3
 
